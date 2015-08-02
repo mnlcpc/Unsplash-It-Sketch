@@ -1,0 +1,11 @@
+{
+    "name": "Unsplush It",
+    "version": 0.1,
+    "identifier": "com.manuelecapacci.sketch.unsplushit",
+    "updateURL": "https://github.com/downloads/example/sketchplugins/sketchplugins.json",
+
+    "author" : "Manuele Capacci",
+    "authorEmail" : "hello@manuelecapacci.com",
+    "description" : "A useful Sketch plugin to quickly include great looking image from unsplash.com",
+    "homepage": "http://github.com/example/sketchplugins",
+}

@@ -1,0 +1,152 @@
+(function () {
+
+    function createSelect(msg, description, items, selectedItemIndex){
+      selectedItemIndex = selectedItemIndex || 0
+
+      var accessory = [[NSComboBox alloc] initWithFrame:NSMakeRect(0,0,200,25)]
+      [accessory addItemsWithObjectValues:items]
+      [accessory selectItemAtIndex:selectedItemIndex]
+
+      var alert = [[NSAlert alloc] init]
+      [alert setMessageText:msg]
+      [alert setInformativeText:description]
+      [alert addButtonWithTitle:'OK']
+      [alert addButtonWithTitle:'Cancel']
+      [alert setAccessoryView:accessory]
+
+      var responseCode = [alert runModal]
+      var sel = [accessory indexOfSelectedItem]
+
+      return [responseCode, sel]
+    }
+
+    function createAlert(title, description){
+
+      var alert = [[NSAlert alloc] init]
+      [alert setMessageText:title]
+      [alert setInformativeText:description]
+      [alert addButtonWithTitle:'Yes']
+      [alert addButtonWithTitle:'No']
+
+      var responseCode = [alert runModal]
+
+      return [responseCode]
+    }
+
+
+
+    /********** GRAYSCALE **********/
+    var grayscaleDialog = createAlert("Grayscale", "Want a grayscale image?");
+
+    if (grayscaleDialog[0] === 1001)
+        grayscale = false;
+    else if (grayscaleDialog[0] === 1000)
+        grayscale = true;
+    else
+        grayscale = false;
+    //log(grayscale);
+
+
+
+    /********** BLUR ***********/
+    var blurDialog = createAlert("Blur", "Want a blurred image?");
+
+    if (blurDialog[0] === 1001)
+        blur = false;
+    else if (blurDialog[0] === 1000)
+        blur = true;
+    else
+        blur = false;
+
+
+
+    /********** CROP **********/
+    var cropOptions = ["Center", "North", "East", "South", "West"]
+    var cropDialog = createSelect("Cropping Gravity", "Select the Cropping Gravity", cropOptions, 0);
+
+    if (cropDialog[1] === 0)
+        crop = "center";
+    else if (cropDialog[1] === 1)
+        crop = "north";
+    else if (cropDialog[1] === 2)
+        crop = "east";
+    else if (cropDialog[1] === 3)
+        crop = "south";
+    else if (cropDialog[1] === 4)
+        crop = "west";
+    else
+        crop = "center";
+
+    //log(crop);
+
+
+
+
+
+
+
+
+
+
+
+
+
+    var selection = context.selection;
+
+    for(var i = 0; i < [selection count]; i++){
+
+        log("entro")
+
+        var layer = selection[i];
+
+        //log(layer.frame());
+        var layerSizes = layer.frame();
+        log([layerSizes width]);
+
+        if([layer class] == MSShapeGroup){
+
+            var isBlur;
+            if (blur)
+                isBlur = "&blur";
+            else
+                isBlur = "&";
+
+
+            var isGrayscale;
+            if (grayscale)
+                isGrayscale = "&g";
+            else
+                isGrayscale = "&";
+
+
+
+            var fill = layer.style().fills().firstObject();
+            var imageData = NSImage.alloc().initWithData(get(
+                    "https://unsplash.it/" +
+                    [layerSizes width] + "/" + [layerSizes height] +
+                    "?random" + isBlur + isGrayscale + "&gravity=" + crop
+                ));
+            layerStyle = layer.style().fills().firstObject();
+            layerStyle.setFillType(4);
+            layerStyle.setPatternImage(imageData);
+            layerStyle.setPatternFillType(1);
+        }
+    }
+
+
+
+
+    function get(url) {
+        var request = NSURLRequest.requestWithURL(NSURL.URLWithString(url));
+        var response = NSURLConnection.sendSynchronousRequest_returningResponse_error(request, null, null);
+        return response;
+    }
+
+
+
+}());
+
+
+
+
+

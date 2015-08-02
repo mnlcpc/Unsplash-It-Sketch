@@ -1,0 +1,37 @@
+// Use an image from Unsplush.com (shift command u)
+
+(function () {
+
+    var selection = context.selection;
+
+    for(var i = 0; i < [selection count]; i++){
+
+        log("entro")
+
+        var layer = selection[i];
+
+        //log(layer.frame());
+        var layerSizes = layer.frame();
+        log([layerSizes width]);
+
+        if([layer class] == MSShapeGroup){
+
+            var fill = layer.style().fills().firstObject();
+            var imageData = NSImage.alloc().initWithData(get("https://unsplash.it/"+[layerSizes width]+"/"+[layerSizes height]+"?random"));
+            layerStyle = layer.style().fills().firstObject();
+            layerStyle.setFillType(4);
+            layerStyle.setPatternImage(imageData);
+            layerStyle.setPatternFillType(1);
+        }
+    }
+
+
+
+
+    function get(url) {
+        var request = NSURLRequest.requestWithURL(NSURL.URLWithString(url));
+        var response = NSURLConnection.sendSynchronousRequest_returningResponse_error(request, null, null);
+        return response;
+    }
+
+}());
