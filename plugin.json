@@ -1,7 +1,7 @@
 {
-    "name": "Unsplush It",
+    "name": "Unsplash It",
     "version": 0.1,
-    "identifier": "com.manuelecapacci.sketch.unsplushit",
+    "identifier": "com.manuelecapacci.sketch.unsplashit",
     "updateURL": "https://github.com/downloads/example/sketchplugins/sketchplugins.json",
 
     "author" : "Manuele Capacci",
