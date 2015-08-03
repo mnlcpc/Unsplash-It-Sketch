@@ -114,17 +114,17 @@
 
             var isGrayscale;
             if (grayscale)
-                isGrayscale = "&g";
+                isGrayscale = "/g/";
             else
-                isGrayscale = "&";
+                isGrayscale = "/";
 
 
 
             var fill = layer.style().fills().firstObject();
             var imageData = NSImage.alloc().initWithData(get(
-                    "https://unsplash.it/" +
+                    "https://unsplash.it" + "" + isGrayscale +""+
                     [layerSizes width] + "/" + [layerSizes height] +
-                    "?random" + isBlur + isGrayscale + "&gravity=" + crop
+                    "?random" + isBlur + "&gravity=" + crop
                 ));
             layerStyle = layer.style().fills().firstObject();
             layerStyle.setFillType(4);
