@@ -34,7 +34,7 @@ You can also chose "Unsplash It + Options" and chose if you want the picture
 To propose changes, fork the repository and submit a pull request. Thanks!
 
 ## Questions?
-Reach out to @fhuel on Twitter
+Reach out to [@fhuel](https://twitter.com/fhuel) on Twitter
 
 
 ### Thanks
