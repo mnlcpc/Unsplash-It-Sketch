@@ -2,10 +2,10 @@
     "name": "Unsplash It",
     "version": 0.1,
     "identifier": "com.manuelecapacci.sketch.unsplashit",
-    "updateURL": "https://github.com/downloads/example/sketchplugins/sketchplugins.json",
+    "updateURL": "https://github.com/fhuel/Unsplash-It/blob/master/plugin.json",
 
     "author" : "Manuele Capacci",
     "authorEmail" : "hello@manuelecapacci.com",
     "description" : "A useful Sketch plugin to quickly include great looking image from unsplash.com",
-    "homepage": "http://github.com/example/sketchplugins",
+    "homepage": "https://github.com/fhuel/Unsplash-It/",
 }
