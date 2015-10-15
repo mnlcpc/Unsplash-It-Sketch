@@ -2,8 +2,8 @@
 
 ![Unsplash It Sketch Plugin Icon](/assets/icon_small.png?raw=true "Unsplash It Sketch Plugin Icon")
 
-A plugin to quickly include great looking image from [Unsplash](https://unsplash.com/] in your Sketch projects.
-Because beign able to quickly iterate on UI is important but also having great photography for placeholder is not so bad.
+A plugin to quickly include great looking images from [Unsplash](https://unsplash.com/) in your Sketch projects.
+Because beign able to quickly iterate on UI is important but also having great photography as placeholders is not that bad.
 
 ## Demo
 ![Plugin Demo](/assets/demo.gif?raw=true "Unsplash It Sketch Plugin Demo Animation")
@@ -34,7 +34,7 @@ You can also chose "Unsplash It + Options" and chose if you want the picture
 To propose changes, fork the repository and submit a pull request. Thanks!
 
 ## Questions?
-Reach out to [@fhuel](https://twitter.com/fhuel) on Twitter
+Reach out to [@ManueleCapacci](https://twitter.com/ManueleCapacci) on Twitter
 
 
 ### Thanks
