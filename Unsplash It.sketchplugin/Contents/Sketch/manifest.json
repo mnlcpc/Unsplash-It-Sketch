@@ -1,0 +1,31 @@
+{
+    "name": "Unsplash It Sketch",
+    "description" : "A plugin to quickly include great looking images from Unsplash in your Sketch projects",
+    "author" : "Manuele Capacci",
+    "authorEmail" : "hello@manuelecapacci.com",
+    "homepage": "https://github.com/fhuel/Unsplash-It-Sketch",
+    "version" : "1.1",
+    "identifier" : "com.manuelecapacci.unsplash-it-sketch",
+    "compatibleVersion": "3.4",
+    "bundleVersion": "1",
+    "commands" : [
+        {
+            "script" : "unsplashit.cocoascript",
+            "shortcut" : "shift cmd u",
+            "name" : "Unsplash It",
+            "identifier" : "unsplashit"
+        },
+        {
+            "script" : "unsplashitplusoptions.cocoascript",
+            "shortcut" : "shift cmd alt u",
+            "name" : "Unsplash It with Options",
+            "identifier" : "unsplashit+options"
+        }
+    ],
+    "menu" : {
+        "items" : [
+            "unsplashit",
+            "unsplashit+options"
+        ]
+    }
+}

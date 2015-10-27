@@ -1,7 +1,12 @@
 // Use an image from Unsplash.com (shift command u)
+var onRun = function (context) {
 
-(function () {
-
+    // Global variables
+    doc = context.document;
+    plugin = context.plugin;
+    page = doc.currentPage();
+    artboard = page.currentArtboard();
+    selection = context.selection;
     var selection = context.selection;
 
     for(var i = 0; i < [selection count]; i++){
@@ -20,7 +25,10 @@
             var imageData = NSImage.alloc().initWithData(get("https://unsplash.it/"+[layerSizes width]+"/"+[layerSizes height]+"?random"));
             layerStyle = layer.style().fills().firstObject();
             layerStyle.setFillType(4);
-            layerStyle.setPatternImage(imageData);
+
+            var imageCollection = fill.documentData().images();
+            [fill setPatternImage: imageData collection: imageCollection];
+
             layerStyle.setPatternFillType(1);
         }
     }
@@ -34,4 +42,5 @@
         return response;
     }
 
-}());
+};
+

@@ -1,4 +1,4 @@
-(function () {
+var onRun = function (context) {
 
     function createSelect(msg, description, items, selectedItemIndex){
       selectedItemIndex = selectedItemIndex || 0
@@ -128,7 +128,10 @@
                 ));
             layerStyle = layer.style().fills().firstObject();
             layerStyle.setFillType(4);
-            layerStyle.setPatternImage(imageData);
+
+            var imageCollection = fill.documentData().images();
+            [fill setPatternImage: imageData collection: imageCollection];
+
             layerStyle.setPatternFillType(1);
         }
     }
@@ -142,11 +145,4 @@
         return response;
     }
 
-
-
-}());
-
-
-
-
-
+};
