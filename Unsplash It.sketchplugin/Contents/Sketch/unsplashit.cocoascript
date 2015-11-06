@@ -22,7 +22,7 @@ var onRun = function (context) {
         if([layer class] == MSShapeGroup){
 
             var fill = layer.style().fills().firstObject();
-            var imageData = NSImage.alloc().initWithData(get("https://unsplash.it/"+[layerSizes width]+"/"+[layerSizes height]+"?random"));
+            var imageData = NSImage.alloc().initWithData(get("https://source.unsplash.com/random/"+[layerSizes width]+"x"+[layerSizes height]));
             layerStyle = layer.style().fills().firstObject();
             layerStyle.setFillType(4);
 
@@ -43,4 +43,3 @@ var onRun = function (context) {
     }
 
 };
-
