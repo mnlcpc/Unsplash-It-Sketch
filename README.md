@@ -22,12 +22,12 @@ Because beign able to quickly iterate on UI is important but also having great p
 3. That's it, your shape(s) will become beautiful placeholder images
 
 #### optional
+Name your layer according to the content of the image you need. e.g. a layer rectangle named "food" would only fill with images of food.
+
 You can also chose "Unsplash It + Options" and chose if you want the picture
 - In grayscale
 - Blurred
 - or cropped in some specific way as explained on [Unsplash It](https://www.Unsplash.it)
-
-
 
 
 ## Help me improve this plugin

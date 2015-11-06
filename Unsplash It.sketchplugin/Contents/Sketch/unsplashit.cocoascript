@@ -22,7 +22,15 @@ var onRun = function (context) {
         if([layer class] == MSShapeGroup){
 
             var fill = layer.style().fills().firstObject();
-            var imageData = NSImage.alloc().initWithData(get("https://source.unsplash.com/random/"+[layerSizes width]+"x"+[layerSizes height]));
+            var name = layer.name();
+            var imageURL;
+
+            if(name.indexOf("Rectangle") > -1 || name.indexOf("Oval") > -1) {
+              imageURL = "https://source.unsplash.com/random/"+[layerSizes width]+"x"+[layerSizes height];
+            } else {
+              imageURL = "https://source.unsplash.com/"+[layerSizes width]+"x"+[layerSizes height]+"/?" + name;
+            }
+            var imageData = NSImage.alloc().initWithData(get(imageURL));
             layerStyle = layer.style().fills().firstObject();
             layerStyle.setFillType(4);
 
