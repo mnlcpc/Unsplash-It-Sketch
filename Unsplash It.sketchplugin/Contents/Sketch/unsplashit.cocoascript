@@ -28,7 +28,7 @@ var onRun = function (context) {
             if(name.indexOf("Rectangle") > -1 || name.indexOf("Oval") > -1) {
               imageURL = "https://source.unsplash.com/random/"+[layerSizes width]+"x"+[layerSizes height];
             } else {
-              imageURL = "https://source.unsplash.com/"+[layerSizes width]+"x"+[layerSizes height]+"/?" + name;
+              imageURL = "https://source.unsplash.com/"+[layerSizes width]+"x"+[layerSizes height]+"/?" + escape(name);
             }
             var imageData = NSImage.alloc().initWithData(get(imageURL));
             layerStyle = layer.style().fills().firstObject();
