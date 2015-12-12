@@ -51,4 +51,5 @@ Reach out to [@ManueleCapacci](https://twitter.com/ManueleCapacci) on Twitter
 ### Thanks
 This plugin exists thanks to the work of
 [Scott Webb](https://twitter.com/scotty_webb), the curators, photographers and all the people involved in [Unsplash](https://unsplash.com/);
-and [David Marby](http://dmarby.se/) & [Nijiko Yonskai](https://github.com/Nijikokun) for [unsplash.it](https://unsplash.it/)
+[David Marby](http://dmarby.se/) & [Nijiko Yonskai](https://github.com/Nijikokun) for [unsplash.it](https://unsplash.it/);
+Nolastan
