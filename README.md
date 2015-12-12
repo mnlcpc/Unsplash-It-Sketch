@@ -3,13 +3,29 @@
 ![Unsplash It Sketch Plugin Icon](/assets/icon_small.png?raw=true "Unsplash It Sketch Plugin Icon")
 
 A plugin to quickly include great looking images from [Unsplash](https://unsplash.com/) in your Sketch projects.
-Because beign able to quickly iterate on UI is important but also having great photography as placeholders is not that bad.
+Because being able to quickly iterate on UI is important but also having great photography as placeholders is not that bad.
+
 
 ## Demo
 ![Plugin Demo](/assets/demo.gif?raw=true "Unsplash It Sketch Plugin Demo Animation")
 
-## Installation
 
+### Updates
+*1.3*
+- Switched to the Unsplash Source API.
+- You can now specify tags, between square brackets, in the layer name. ( e.g. [bird, sea] ). If no image is available for the search tags you choose, you get a default image with "We coulnd' find that photo" on it.
+- Removed options, since to blur and desaturate the image is fairly easy to do using default Sketch tools.
+
+### Next iteration
+- With the layer selected, being able to navigate to the picture page URL on Unsplash.
+
+
+## Installation
+#### With Sketch Toolbox
+1. Look for "Unsplash It" in Sketch Toolbox
+2. Click on "Install"
+
+#### Manual
 1. Download Zip and Extract it to a folder
 2. In Sketch app Plugins > Reveal Plugins folder...
 3. Place the extracted folder directly to the Plugins folder
@@ -22,12 +38,7 @@ Because beign able to quickly iterate on UI is important but also having great p
 3. That's it, your shape(s) will become beautiful placeholder images
 
 #### optional
-Name your layer according to the content of the image you need. e.g. a layer rectangle named "food" would only fill with images of food.
-
-You can also chose "Unsplash It + Options" and chose if you want the picture
-- In grayscale
-- Blurred
-- or cropped in some specific way as explained on [Unsplash It](https://www.Unsplash.it)
+Name your layer according to the content of the image you need, using tags in square brackets. e.g. a layer named "Rectanlge [food]" would only fill with images of food.
 
 
 ## Help me improve this plugin

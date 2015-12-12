@@ -2,51 +2,70 @@
 var onRun = function (context) {
 
     // Global variables
-    doc = context.document;
-    plugin = context.plugin;
-    page = doc.currentPage();
-    artboard = page.currentArtboard();
-    selection = context.selection;
+    var doc = context.document;
+    var plugin = context.plugin;
+    var page = doc.currentPage();
+    var artboard = page.currentArtboard();
+    var app = NSApplication.sharedApplication();
     var selection = context.selection;
 
-    for(var i = 0; i < [selection count]; i++){
 
-        log("entro")
+    if ( selection.count() == 0 )
+    {
+        // nothing selected
+        app.displayDialog_withTitle("For this plugin to work right you have to select at least one shape layer", "No shape layer selected");
+    }
+    else
+    {
 
-        var layer = selection[i];
+        for(var i = 0; i < [selection count]; i++) {
 
-        //log(layer.frame());
-        var layerSizes = layer.frame();
-        log([layerSizes width]);
+            var layer = selection[i];
+            var layerSizes = layer.frame();
 
-        if([layer class] == MSShapeGroup){
+            // is the current layer a shape layer?
+            if( [layer class] == MSShapeGroup) {
 
-            var fill = layer.style().fills().firstObject();
-            var name = layer.name();
-            var imageURL;
+                var fill = layer.style().fills().firstObject();
+                var imageURL;
+                var tags;
+                var name = layer.name().trim();
 
-            if(name.indexOf("Rectangle") > -1 || name.indexOf("Oval") > -1) {
-              imageURL = "https://source.unsplash.com/random/"+[layerSizes width]+"x"+[layerSizes height];
-            } else {
-              imageURL = "https://source.unsplash.com/"+[layerSizes width]+"x"+[layerSizes height]+"/?" + name;
+                // check for tags in the layer name
+                var matches = name.match(/\[(.*?)\]/);
+                if (matches) {
+                    tags = matches[1];
+                }
+
+                // build the URL to retrieve the image
+                if(tags) {
+                    imageURL = "https://source.unsplash.com/"+[layerSizes width]+"x"+[layerSizes height]+"/?" + encodeURI(tags);
+                } else {
+                    imageURL = "https://source.unsplash.com/random/"+[layerSizes width]+"x"+[layerSizes height];
+                }
+
+                var imageData = NSImage.alloc().initWithData( get(imageURL) );
+                var imageCollection = fill.documentData().images();
+
+                fill.setFillType(4);
+                [fill setPatternImage: imageData collection: imageCollection];
+                fill.setPatternFillType(1);
+
             }
-            var imageData = NSImage.alloc().initWithData(get(imageURL));
-            layerStyle = layer.style().fills().firstObject();
-            layerStyle.setFillType(4);
-
-            var imageCollection = fill.documentData().images();
-            [fill setPatternImage: imageData collection: imageCollection];
-
-            layerStyle.setPatternFillType(1);
+            else {
+                app.displayDialog_withTitle("You did run the plugin on “" + [layer name] + "” that is not a shape layer. Select a shape layer to use Unsplash It", "Unsplash It works on Shape Layer only");
+            }
         }
+
+        doc.showMessage("Unsplash It, done!");
     }
 
 
-
-
     function get(url) {
+
         var request = NSURLRequest.requestWithURL(NSURL.URLWithString(url));
         var response = NSURLConnection.sendSynchronousRequest_returningResponse_error(request, null, null);
+
         return response;
     }
 
