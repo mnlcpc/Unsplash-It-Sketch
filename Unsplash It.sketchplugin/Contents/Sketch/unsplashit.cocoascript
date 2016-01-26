@@ -45,11 +45,10 @@ var onRun = function (context) {
                 }
 
                 var imageData = NSImage.alloc().initWithData( get(imageURL) );
-                var imageCollection = fill.documentData().images();
 
                 fill.setFillType(4);
-                [fill setPatternImage: imageData collection: imageCollection];
-                fill.setPatternFillType(1);
+                layer.style().fills().firstObject().setPatternImage( imageData );
+			    layer.style().fills().firstObject().setPatternFillType(1);
 
             }
             else {
