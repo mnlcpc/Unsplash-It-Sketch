@@ -47,8 +47,8 @@ var onRun = function (context) {
                 var imageData = NSImage.alloc().initWithData( get(imageURL) );
 
                 fill.setFillType(4);
-                layer.style().fills().firstObject().setPatternImage( imageData );
-			    layer.style().fills().firstObject().setPatternFillType(1);
+                fill.setPatternImage( imageData );
+			    fill.setPatternFillType(1);
 
             }
             else {
