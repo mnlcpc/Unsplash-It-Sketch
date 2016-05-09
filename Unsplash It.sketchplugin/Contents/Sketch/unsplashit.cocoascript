@@ -1,3 +1,15 @@
+// get sketch versionse
+function getSketchVersionNumber() {
+    const version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]
+    var versionNumber = version.stringByReplacingOccurrencesOfString_withString(".", "") + ""
+    while(versionNumber.length != 3) {
+        versionNumber += "0"
+    }
+    return parseInt(versionNumber)
+}
+
+var sketchVersion = getSketchVersionNumber()
+
 // Use an image from Unsplash.com (shift command u)
 var onRun = function (context) {
 
@@ -47,8 +59,16 @@ var onRun = function (context) {
                 var imageData = NSImage.alloc().initWithData( get(imageURL) );
 
                 fill.setFillType(4);
-                fill.setPatternImage( imageData );
-			    fill.setPatternFillType(1);
+                if (sketchVersion > 370) {
+		  // you need to grab the image with MSImageData like this one
+		  var image = [[MSImageData alloc] initWithImage: imageData convertColorSpace: false]]
+		  fill.setImage(image)
+		} else if(sketchVersion < 350) {
+		 [fill setPatternImage:imageData collection:[[fill documentData] images]]
+		} else {
+		 fill.setPatternImage(imageData)
+		}
+		fill.setPatternFillType(1);
 
             }
             else {
