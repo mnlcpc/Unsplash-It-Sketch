@@ -47,7 +47,7 @@ var onRun = function (context) {
                 var imageData = NSImage.alloc().initWithData( get(imageURL) );
 
                 fill.setFillType(4);
-                fill.setPatternImage( imageData );
+                fill.setImage([[MSImageData alloc] initWithImage: imageData convertColorSpace: false]); // Change to Sketch V40 or higher. 
 			    fill.setPatternFillType(1);
 
             }
