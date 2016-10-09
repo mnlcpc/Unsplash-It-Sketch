@@ -11,6 +11,9 @@ Because being able to quickly iterate on UI is important but also having great p
 
 
 ### Updates
+*1.4*
+- Fixed all the compatibilty issues with Sketch 4.
+
 *1.3*
 - Switched to the Unsplash Source API.
 - You can now specify tags, between square brackets, in the layer name. ( e.g. [bird, sea] ). If no image is available for the search tags you choose, you get a default image with "We coulnd' find that photo" on it.
