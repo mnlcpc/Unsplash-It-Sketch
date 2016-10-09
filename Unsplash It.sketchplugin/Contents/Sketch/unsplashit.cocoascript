@@ -47,7 +47,7 @@ var onRun = function (context) {
                 var imageData = NSImage.alloc().initWithData( get(imageURL) );
 
                 fill.setFillType(4);
-                fill.setPatternImage( imageData );
+                fill.setImage(MSImageData.alloc().initWithImage_convertColorSpace(imageData, false));
 			    fill.setPatternFillType(1);
 
             }
