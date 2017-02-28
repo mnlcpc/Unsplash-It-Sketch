@@ -41,7 +41,7 @@ Because being able to quickly iterate on UI is important but also having great p
 3. That's it, your shape(s) will become beautiful placeholder images
 
 #### optional
-Name your layer according to the content of the image you need, using tags in square brackets. e.g. a layer named "Rectanlge [food]" would only fill with images of food.
+Name your layer according to the content of the image you need, using tags in square brackets. e.g. a layer named `Rectangle [food]` would only fill with images of food.
 
 
 ## Help me improve this plugin
