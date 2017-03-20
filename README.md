@@ -24,6 +24,9 @@ Because being able to quickly iterate on UI is important but also having great p
 
 
 ## Installation
+#### With Sketchpacks
+[![Install PLUGIN NAME with Sketchpacks](http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png "Install PLUGIN NAME with Sketchpacks")](https://sketchpacks.com/YOUR_NAME/PLUGIN_NAME/install)
+
 #### With Sketch Toolbox
 1. Look for "Unsplash It" in Sketch Toolbox
 2. Click on "Install"
