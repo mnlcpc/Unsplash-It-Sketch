@@ -13,7 +13,7 @@ Because being able to quickly iterate on UI is important but also having great p
 ### Updates
 *1.5*
 - Included a Settings dialog to set size multiplier for the image to fetch.
-- Compatibility with the official plugin update system.
+- Compatibility with the official plugin update system (test).
 
 *1.4*
 - Fixed all the compatibilty issues with Sketch 4.
@@ -30,6 +30,10 @@ Because being able to quickly iterate on UI is important but also having great p
 ## Installation
 #### With Sketchpacks
 [![Install PLUGIN NAME with Sketchpacks](http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png "Install PLUGIN NAME with Sketchpacks")](https://sketchpacks.com/YOUR_NAME/PLUGIN_NAME/install)
+
+#### Installation via [Sketch Plugin Manager](https://mludowise.github.io/Sketch-Plugin-Manager/):
+1. In the 'Catalog' tab of the Sketch Plugin Manager window, click in the 'Search' field and type 'Unsplash', to filter the list.
+2. You will see the 'Unsplash It' plugin listed at the top of the list. Click the 'Instal' button inside it.
 
 #### With Sketch Toolbox
 1. Look for "Unsplash It" in Sketch Toolbox
