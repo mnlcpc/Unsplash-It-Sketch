@@ -4,21 +4,31 @@
     "author" : "Manuele Capacci",
     "authorEmail" : "hello@manuelecapacci.com",
     "homepage": "https://github.com/fhuel/Unsplash-It-Sketch",
-    "version" : "1.4",
+    "version" : "1.5",
     "identifier" : "com.manuelecapacci.unsplash-it-sketch",
     "compatibleVersion": "4.0",
+    "appcast": "https://github.com/fhuel/Unsplash-It-Sketch/blob/master/Unsplash%20It.sketchplugin/Contents/Sketch/appcast.xml",
     "bundleVersion": "1",
     "commands" : [
         {
-            "script" : "unsplashit.cocoascript",
-            "shortcut" : "shift cmd u",
             "name" : "Unsplash It",
+            "script" : "script.cocoascript",
+            "shortcut" : "shift cmd u",
+            "identifier" : "unsplashit",
             "identifier" : "unsplashit"
+        },
+        {
+            "name" : "Settings",
+            "script" : "script.cocoascript",
+            "handler" : "settings",
+            "identifier" : "settings"
         }
     ],
     "menu" : {
         "items" : [
-            "unsplashit"
-        ]
+            "unsplashit",
+            "settings"
+        ],
+        "title" : "Unsplash It Sketch"
     }
 }

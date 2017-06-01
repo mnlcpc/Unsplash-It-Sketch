@@ -1,0 +1,162 @@
+var doc, selection, selectionCount, page, app, layer, layers, layerCount, utils, userDefaults, sizeMultiplier;
+
+
+
+//Input variables
+userDefaults = NSUserDefaults.alloc().initWithSuiteName("com.manuelecapacci.unsplash-it-sketch");
+sizeMultiplier = userDefaults.objectForKey("sizeMultiplierInput") || 1;
+
+
+
+// Use an image from Unsplash.com (shift command u)
+function onRun(context){
+    unsplashit(context);
+}
+
+
+
+function unsplashit(context) {
+    
+    // Global variables
+    var doc = context.document;
+    var plugin = context.plugin;
+    var page = doc.currentPage();
+    var artboard = page.currentArtboard();
+    var app = NSApplication.sharedApplication();
+    var selection = context.selection;
+
+    doc.showMessage("fetching from Usplash...");
+
+    if ( selection.count() == 0 )
+    {
+        // nothing selected
+        app.displayDialog_withTitle("For this plugin to work right you have to select at least one shape layer", "No shape layer selected");
+    }
+    else
+    {
+        for(var i = 0; i < [selection count]; i++) {
+
+            var layer = selection[i];
+            var layerSizes = layer.frame();
+            var plugin = context.command; // to access the command needed to store info in the file
+
+            // is the current layer a shape layer?
+            if( [layer class] == MSShapeGroup) {
+
+                var fill = layer.style().fills().firstObject();
+                var imageURL;
+                var tags;
+                var name = layer.name().trim();
+
+                // check for tags in the layer name
+                var matches = name.match(/\[(.*?)\]/);
+                if (matches) {
+                    tags = matches[1];
+                }
+
+                // build the URL to retrieve the image
+                if(tags) {
+                    imageURL = "https://source.unsplash.com/"+[layerSizes width] * sizeMultiplier +"x"+[layerSizes height] * sizeMultiplier +"/?" + encodeURI(tags);
+                } else {
+                    imageURL = "https://source.unsplash.com/random/"+[layerSizes width] * sizeMultiplier +"x"+[layerSizes height] * sizeMultiplier ;
+                }
+
+                var response = get(imageURL);
+                log(response);
+                var imageData = NSImage.alloc().initWithData( response );
+                
+                fill.setFillType(4);
+                fill.setImage(MSImageData.alloc().initWithImage_convertColorSpace(imageData, false));
+			    fill.setPatternFillType(1);
+
+                // next feature ? store info in the layer 
+                // [plugin setValue:"Bar" forKey:"Foo" onLayer:layer]
+
+            }
+            else {
+                app.displayDialog_withTitle("You did run the plugin on “" + [layer name] + "” that is not a shape layer. Select a shape layer to use Unsplash It", "Unsplash It works on Shape Layer only");
+            }
+        }
+
+        doc.showMessage("Unsplash It, done!");
+    }
+
+    function get(url) {
+
+        var request = NSURLRequest.requestWithURL(NSURL.URLWithString(url));
+        var data = NSURLConnection.sendSynchronousRequest_returningResponse_error(request, null, null);
+        if (data){
+            return data;
+        } else {
+            doc.showMessage("Error in fetching data. Try again");
+        }
+    }
+};
+
+
+
+
+function settings(context)
+{
+    var settingsWindow = COSAlertWindow.new();
+    settingsWindow.setMessageText("Unsplush It Sketch - Settings")
+    settingsWindow.addButtonWithTitle("Save and run");
+    settingsWindow.addButtonWithTitle("Save");
+    settingsWindow.addButtonWithTitle("Cancel");
+
+    // View Settings
+    var viewWidth = 400;
+    var viewHeight = 200;
+    var viewSpacer = 10;
+
+    // Create View
+    var view = NSView.alloc().initWithFrame(NSMakeRect(0, 0, viewWidth, viewHeight));
+    settingsWindow.addAccessoryView(view);
+
+    // Create Labels
+    var infoLabel = createLabel(NSMakeRect(0, viewHeight - 33, (viewWidth - 100), 35),"Here you can setup the plugin to make it fit better to your specific needs.");
+    var sizeMultiplierLabel = createLabel(NSMakeRect(-1, viewHeight - 65, (viewWidth / 2) - viewSpacer, 20), "Picture Size Multiplier:");
+    // Add Labels
+    view.addSubview(infoLabel);
+    view.addSubview(sizeMultiplierLabel);
+
+    // Create inputs
+    sizeMultiplierTextField = NSTextField.alloc().initWithFrame(NSMakeRect(0, viewHeight - 85, 40, 20));
+    // Add inputs
+    view.addSubview(sizeMultiplierTextField);
+
+    // Fill inputs
+    sizeMultiplierTextField.setStringValue(userDefaults.objectForKey("sizeMultiplierInput"));
+
+
+    
+    var response = settingsWindow.runModal();
+    if(response == "1000"){
+        // meaning when the user clicks save and run
+        sizeMultiplierInput = sizeMultiplierTextField.stringValue();
+        sizeMultiplier = Number(sizeMultiplierInput);
+        [userDefaults setObject:sizeMultiplierInput forKey:"sizeMultiplierInput"]; // Save to user defaults
+        unsplashit(context);
+        return true;
+    } else if(response == "1001") {
+        // meaning when the user clicks save
+        sizeMultiplierInput = sizeMultiplierTextField.stringValue();
+        sizeMultiplier = Number(sizeMultiplierInput);
+        [userDefaults setObject:sizeMultiplierInput forKey:"sizeMultiplierInput"]; // Save to user defaults
+        return true;
+    } else {
+        // if clicks "cancel"
+        return false;
+    }
+}
+
+
+function createLabel(frame, text) {
+    var label = NSTextField.alloc().initWithFrame(frame);
+    label.setStringValue(text);
+    label.setSelectable(false);
+    label.setEditable(false);
+    label.setBezeled(false);
+    label.setDrawsBackground(false);
+    return label
+}

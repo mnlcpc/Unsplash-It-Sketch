@@ -11,6 +11,10 @@ Because being able to quickly iterate on UI is important but also having great p
 
 
 ### Updates
+*1.5*
+- Included a Settings dialog to set size multiplier for the image to fetch.
+- Compatibility with the official plugin update system.
+
 *1.4*
 - Fixed all the compatibilty issues with Sketch 4.
 

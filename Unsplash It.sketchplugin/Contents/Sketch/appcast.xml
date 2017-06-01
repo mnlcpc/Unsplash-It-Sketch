@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Unsplash-It-Sketch</title>
+    <link>http://sparkle-project.org/files/sparkletestcast.xml</link>
+    <description>A plugin to quickly include great looking image from Unsplash.com in your Sketch projects.</description>
+    <language>en</language>
+      <item>
+      <item>
+        <title>Version 1.5</title>
+        <description>
+          <![CDATA[
+            <ul>
+            <li>Mino update v1.5</li>
+            </ul>
+          ]]>
+        </description>
+        <pubDate>Thu, 01 Jun 2017 14:58:00 +0000</pubDate>
+        <enclosure url="https://github.com/fhuel/Unsplash-It-Sketch/archive/v1.5.zip" sparkle:version="1.5" length="132428" type="application/octet-stream" />
+      </item>
+  </channel>
+</rss>
