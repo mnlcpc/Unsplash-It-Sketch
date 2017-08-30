@@ -29,7 +29,7 @@ Because being able to quickly iterate on UI is important but also having great p
 
 ## Installation
 #### With Sketchpacks
-[![Install PLUGIN NAME with Sketchpacks](http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png "Install PLUGIN NAME with Sketchpacks")](https://sketchpacks.com/YOUR_NAME/PLUGIN_NAME/install)
+[![Install PLUGIN NAME with Sketchpacks](http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png "Install Unsplash It Sketch with Sketchpacks")](https://sketchpacks.com/fhuel/Unsplash-It-Sketch/install)
 
 #### Installation via [Sketch Plugin Manager](https://mludowise.github.io/Sketch-Plugin-Manager/):
 1. In the 'Catalog' tab of the Sketch Plugin Manager window, click in the 'Search' field and type 'Unsplash', to filter the list.
