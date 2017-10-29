@@ -63,10 +63,19 @@ function unsplashit(context) {
 
                 var response = get(imageURL);
                 log(response);
-                var imageData = NSImage.alloc().initWithData( response );
-                
+                var image = NSImage.alloc().initWithData( response );
+
+                var imageData;
+                if (MSApplicationMetadata.metadata().appVersion < 47) {
+                    imageData = MSImageData.alloc().initWithImage_convertColorSpace(image, false);
+                } else {
+                    imageData = MSImageData.alloc().initWithImage(image);
+                }
+
+
                 fill.setFillType(4);
-                fill.setImage(MSImageData.alloc().initWithImage_convertColorSpace(imageData, false));
+                // fill.setImage(MSImageData.alloc().initWithImage_convertColorSpace(imageData, false));
+                fill.setImage( imageData );
 			    fill.setPatternFillType(1);
 
                 // next feature ? store info in the layer 

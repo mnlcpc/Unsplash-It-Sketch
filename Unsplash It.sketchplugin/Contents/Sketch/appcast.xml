@@ -11,12 +11,12 @@
         <description>
           <![CDATA[
             <ul>
-            <li>Mino update v1.5</li>
+            <li>Minor update v1.5</li>
             </ul>
           ]]>
         </description>
         <pubDate>Thu, 01 Jun 2017 14:58:00 +0000</pubDate>
-        <enclosure url="https://github.com/fhuel/Unsplash-It-Sketch/archive/v1.5.zip" sparkle:version="1.5" length="132428" type="application/octet-stream" />
+        <enclosure url="https://github.com/fhuel/Unsplash-It-Sketch/archive/v1.51.zip" sparkle:version="1.5" length="132428" type="application/octet-stream" />
       </item>
   </channel>
 </rss>
