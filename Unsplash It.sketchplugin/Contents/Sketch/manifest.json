@@ -4,7 +4,7 @@
     "author" : "Manuele Capacci",
     "authorEmail" : "hello@manuelecapacci.com",
     "homepage": "https://github.com/fhuel/Unsplash-It-Sketch",
-    "version" : "1.51",
+    "version" : "1.5.1",
     "identifier" : "com.manuelecapacci.unsplash-it-sketch",
     "compatibleVersion": "4.0",
     "appcast": "https://github.com/fhuel/Unsplash-It-Sketch/blob/master/Unsplash%20It.sketchplugin/Contents/Sketch/appcast.xml",
