@@ -19,7 +19,7 @@ The plugin will remain online but won't be updated or maintained anymore. There 
 
 Thank you so much to everyone who showed interest, used and supported **Unsplash It** since I published it. 
 
-This started just as a way to implement a featured we needed internally at [Ourfires](https://ourfir.es/), I honestly didn't expect such a response at all. Again, thank you so much, and I'm sorry for the slow communication and very sparse updates and fixes. 
+This started just as a way to implement a feature we needed internally at [Ourfires](https://ourfir.es/), I honestly didn't expect such a response at all. Again, thank you so much, and I'm sorry for the slow communication and very sparse updates and fixes. 
 
 A special thank to [Timuric](https://github.com/timuric/) who helped me in in a moment when I was completely stuck, and of course to other guys who contributed.
 
