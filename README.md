@@ -6,6 +6,27 @@ A plugin to quickly include great looking images from [Unsplash](https://unsplas
 Because being able to quickly iterate on UI is important but also having great photography as placeholders is not that bad.
 
 
+---
+
+## A last update on UnsplashIt (probably)
+
+I'm very happy that [Sketch now supports natively](https://medium.com/sketch-app-sources/using-the-new-data-feature-in-sketch-52-daee8403cabb) the feature the plugin was developed for, so I see no reason anymore for keeping this project alive.
+
+The plugin will remain online but won't be updated or maintained anymore. There no need for it, go ahead and download the latest Sketch. It's awesome.
+
+
+#### 🙏 A BIG THANK YOU!
+
+Thank you so much to everyone who showed interest, used and supported **Unsplash It** since I published it. 
+
+This started just as a way to implement a featured we needed internally at [Ourfires](https://ourfir.es/), I honestly didn't expect such a response at all. Again, thank you so much, and I'm sorry for the slow communication and very sparse updates and fixes. 
+
+A special thank to [Timuric](https://github.com/timuric/) who helped me in in a moment when I was completely stuck, and of course to other guys who contributed.
+
+If you want to get in touch with me, or get updates on other projects, [follow me on Twitter](https://twitter.com/manuelecapacci) 
+
+---
+
 ## Demo
 ![Plugin Demo](/assets/demo.gif?raw=true "Unsplash It Sketch Plugin Demo Animation")
 
